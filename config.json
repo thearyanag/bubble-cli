@@ -1,0 +1,8 @@
+{
+  "number": 10,
+  "symbol": true,
+  "sellerFeeBasisPoints": "500",
+  "isMutable": true,
+  "uploadMethod": "bundlr",
+  "creators": "FheF4yQu97rmDRqTeN239CPQKJ2bPs5yb3W92QNUMywq:100"
+}
