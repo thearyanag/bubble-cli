@@ -15,7 +15,7 @@ import { createConfig } from "./lib/create/createConfig.js";
 
 // commands related to upload module
 import { askUpload } from "./lib/upload/inquirer.js";
-import { uploadImageToBundlr } from "./lib/upload/uploadImageToBundlr.js";
+import { uploadDataToBundlr } from "./lib/upload/uploadDataToBundlr.js";
 
 // commands related to deploy module
 import { createCollection } from "./lib/deploy/createCollection.js";
@@ -61,14 +61,14 @@ if (Object.keys(res).length === 0) {
     } else if (command === "upload") {
 
         let stats = getAssetStats();
-        console.log(stats)
         let answers = await askUpload(stats);
-        let imageResponse = await uploadImageToBundlr(stats.no,answers);
+        let imageResponse = await uploadDataToBundlr(stats,answers);
         console.log(answers)
         console.log("Uploading assets to Arweave...");
         console.log("upload");
     } else if (command === "deploy") {
-        createCollection();
+       let collection =  await createCollection();
+         console.log(collection)
         console.log("deploy");
     } else {
         console.log("Invalid command");
