@@ -53,5 +53,11 @@
         "image": "https://arweave.net/3yLcPEv38XHfQY9YRAxIdegY2oRD3P5rv9EcCTWrgM0",
         "metadata": "https://arweave.net/NwingoFDQ2eDPVU_BP6vGoJ3gUWFfinbminj3G3ZYjw",
         "name": "Numbers Collection"
+    },
+    "address": {
+        "collection": "5PV4GyEsucYF36Wap1KkKzri75nwrDDmeTJ4XwqvoWmz",
+        "tree": "44yECVfeCbDSNJL9jn3PoyqGFyLnzn88zgPqXcbJe2t8",
+        "treeAuthority": "4Tvqc8q33xj6Br2HjMpvdqLyjSgEeEoBQg9NCh3fCJnQ",
+        "leafOwner": "98XpPBHSSrjZ1cKcVi4rSsBtipf67jeELpzJmYQgJ4Ub"
     }
 }

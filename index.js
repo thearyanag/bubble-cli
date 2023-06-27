@@ -22,6 +22,9 @@ import { createCollection } from "./lib/deploy/createCollection.js";
 import { getMerkleTree } from "./lib/deploy/createMerkleTree.js";
 import { batchNFT } from "./lib/deploy/batchNFT.js";
 
+// commands related to mint module
+import { transferNFT } from "./lib/deploy/transferNFT.js";
+
 if (Object.keys(res).length === 0) {
   clear();
 
@@ -70,7 +73,9 @@ if (Object.keys(res).length === 0) {
     let merkleTree = await getMerkleTree();
     console.log("Deploying collection on Solana...");
     let batch = await batchNFT(collection, merkleTree);
-    console.log("deploy");
+  } else if (command.startsWith("mint")) {
+    let address = keys[1]
+    let transfer = await transferNFT(address);
   } else {
     console.log("Invalid command");
   }
