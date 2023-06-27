@@ -23,5 +23,8 @@
   "bin": {
     "bubble": "./index.js"
   },
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
