@@ -33,7 +33,7 @@ bubble
 
 ```
 bubble-cli 0.6.0
-Command line tool for creating and managing Metaplex Candy Machines.
+Command line tool for creating and managing compressed NFT.
 
 USAGE:
 bubble [OPTIONS] <SUBCOMMAND>
@@ -74,7 +74,7 @@ We will run all our Bubble commands from within the project directory and Bubble
 
 ## Create a Config File
 
-The config file tells Bubble how to configure your candy machine with values such as number of assets, what creators to use, what settings to apply, etc. To create a config file we are going to use the Bubble `create-config` interactive command.
+The config file tells Bubble how to configure your compressed collection with values such as number of assets, what creators to use, what settings to apply, etc. To create a config file we are going to use the Bubble `create-config` interactive command.
 
 Run the following command in your terminal from within your project directory:
 
