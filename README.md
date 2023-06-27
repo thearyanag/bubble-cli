@@ -1,4 +1,4 @@
-# My First Candy Machine
+# My First Compressed NFT collection
 
 
 The goal of this tutorial is to take you from zero to one: you will learn to install Bubble and use its basic commands to configure and deploy a compressed NFT collection to Solana's devnet. It will provide you with a foothold on the basics and enough knowledge that you can then use the rest of the developer resources to learn the more advanced details for using Bubble.
