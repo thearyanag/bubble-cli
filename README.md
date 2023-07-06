@@ -19,6 +19,8 @@ This tutorial targets macOS, Linux, and Windows Subsystem Linux (WSL), but all c
 
 ## Install Bubble
 
+<span style="color:red">Please note that the package is still being uploaded to npm/yarn therefore instead of directly running the commands, you have to first clone the repo and do node index.js as mentioned in the video's above.</span>.
+
 To install Bubble, simply copy and paste and run this command in your terminal:
 
 ```bash
