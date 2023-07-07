@@ -9,22 +9,42 @@
     "args-parser": "^1.3.0",
     "arweave": "1.10.22",
     "bs58": "^5.0.0",
-    "chalk": "^5.2.0",
+    "chalk": "4.1.2",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
     "configstore": "^6.0.0",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.3.1",
     "figlet": "^1.6.0",
-    "inquirer": "^9.2.7",
+    "inquirer": "^8.0.0",
     "minimist": "^1.2.8",
+    "np": "^8.0.4",
     "shelljs": "^0.8.5"
   },
   "bin": {
     "bubble": "./index.js"
   },
-  "type": "module",
   "scripts": {
     "start": "node index.js"
-  }
+  },
+  "package-name": "bubble-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool to mint 10K compressed NFT collection on Solana",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/thearyanag/bubble-cli.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "entrypoint": "index.js",
+  "keywords": [
+    "solana",
+    "nft",
+    "cli",
+    "mint",
+    "metaplex"
+  ],
+  "author": "Aryan",
+  "license": "MIT"
 }

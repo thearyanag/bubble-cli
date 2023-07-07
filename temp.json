@@ -1,1 +1,15 @@
-{"name":"Numbers Collection","symbol":"NB","description":"Collection of 10 numbers on the blockchain.","image":"https://arweave.net/NdwVVyssZHc9ssfw-cIsniyn5PB79Bc75IqBqphKkj4","attributes":[],"properties":{"files":[{"uri":"collection.png","type":"image/png"}]}}
+{
+    "name": "Numbers Collection",
+    "symbol": "NB",
+    "description": "Collection of 10 numbers on the blockchain.",
+    "image": "https://arweave.net/HuhC5gLxwa1N5xu2uQx2aYyisfQiWB2jtaNKMeQNhf0",
+    "attributes": [],
+    "properties": {
+        "files": [
+            {
+                "uri": "collection.png",
+                "type": "image/png"
+            }
+        ]
+    }
+}

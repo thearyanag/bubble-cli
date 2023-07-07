@@ -1,30 +1,28 @@
 #!/usr/bin/env node
 
-import clear from "clear";
-import chalk from "chalk";
-import figlet from "figlet";
-import args from "args-parser";
-import shell from "shelljs";
+const clear = require("clear");
+const chalk = require("chalk");
+const figlet = require("figlet");
+const args = require("args-parser");
+const shell = require("shelljs");
 let res = args(process.argv);
 
-// commands related to create module
-import { askCreate } from "./lib/create/inquirer.js";
-import { getFileContent } from "./lib/create/files.js";
-import { getAssetStats } from "./lib/create/stats.js";
-import { createConfig } from "./lib/create/createConfig.js";
+const {
+  askCreate,
+  getFileContent,
+  getAssetStats,
+  createConfig,
+} = require("./lib/create");
 
-// commands related to upload module
-import { askUpload } from "./lib/upload/inquirer.js";
-import { uploadDataToBundlr } from "./lib/upload/uploadDataToBundlr.js";
+const { askUpload, uploadDataToBundlr } = require("./lib/upload");
 
-// commands related to deploy module
-import { createCollection } from "./lib/deploy/createCollection.js";
-import { getMerkleTree } from "./lib/deploy/createMerkleTree.js";
-import { batchNFT } from "./lib/deploy/batchNFT.js";
+const { createCollection, getMerkleTree, batchNFT } = require("./lib/deploy");
 
-// commands related to mint module
-import { transferNFT } from "./lib/deploy/transferNFT.js";
+const { batchNFTMint }  = require("./lib/batch");
 
+const { transferNFT } = require("./lib/deploy");
+
+// if there are no arguments passed, show the welcome screen
 if (Object.keys(res).length === 0) {
   clear();
 
@@ -44,38 +42,73 @@ if (Object.keys(res).length === 0) {
     )
   );
 } else {
+  // if there are arguments passed, check the command and execute the corresponding function
+  // create
+  // upload
+  // deploy
+  // mint
+
   let keys = Object.keys(res);
   let command = keys[0];
+
   if (command === "create") {
+    /**
+     * The create command does the following:
+     * 1. get the stats of the asset folder
+     * 2. confirm the stats with the user and ask for other details
+     * 3. create the config file
+     */
+
+    // get the stats of the asset folder
     let stats = getAssetStats();
-    console.log();
-    let answers = await askCreate(stats);
-    let isConfigCreated = createConfig(answers, stats);
     console.log();
 
-    if (isConfigCreated) {
-      console.log(
-        "Config file created successfully ✔️ \nPlease proceed to upload your assets "
-      );
-    } else {
-      console.log("Config file creation failed");
-      shell.exit(1);
-    }
+    // confirm the stats with the user and ask for other details
+    askCreate(stats).then((answers) => {
+      // create the config file
+      let isConfigCreated = createConfig(answers, stats);
+      console.log();
+
+      if (isConfigCreated) {
+        console.log(
+          "Config file created successfully ✔️ \nPlease proceed to upload your assets "
+        );
+      } else {
+        console.log("Config file creation failed");
+        shell.exit(1);
+      }
+    });
   } else if (command === "upload") {
     let stats = getAssetStats();
-    let answers = await askUpload(stats);
-    let imageResponse = await uploadDataToBundlr(stats, answers);
-    console.log(answers);
-    console.log("Uploading assets to Arweave...");
-    console.log("upload");
+    console.log(stats);
+    // return
+    let answers = askUpload(stats).then((answers) => {
+      let imageResponse = uploadDataToBundlr(stats, answers);
+      console.log("Uploading assets to Arweave...");
+    });
   } else if (command === "deploy") {
-    let collection = await createCollection();
-    let merkleTree = await getMerkleTree();
-    console.log("Deploying collection on Solana...");
-    let batch = await batchNFT(collection, merkleTree);
+    let collection = createCollection().then((collection) => {
+      console.log("Collection created successfully ✔️");
+      let merkleTree = getMerkleTree().then((merkleTree) => {
+        console.log("Merkle tree created successfully ✔️");
+        let batch = batchNFT(collection, merkleTree).then((batch) => {
+          console.log("Batch created successfully ✔️");
+        });
+      });
+    });
   } else if (command.startsWith("mint")) {
-    let address = keys[1]
-    let transfer = await transferNFT(address);
+    let address = keys[1];
+    let transfer = transferNFT(address);
+  } else if (command == "batch-mint") {
+    let collection = createCollection().then((collection) => {
+      console.log("Collection created successfully ✔️");
+      let merkleTree = getMerkleTree().then((merkleTree) => {
+        console.log("Merkle tree created successfully ✔️");
+        let batch = batchNFTMint(collection, merkleTree).then((batch) => {
+          console.log("Batch created successfully ✔️");
+        });
+      });
+    });
   } else {
     console.log("Invalid command");
   }
