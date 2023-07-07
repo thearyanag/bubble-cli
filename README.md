@@ -233,6 +233,47 @@ Deploying 10 of 10 NFTs
 
 Once this finishes, if you open up the cache.json file again you will see that the values have been filled in as we now have the collection created on-chain
 
+## Batch Mint 
+
+Before running this command make sure to have a wallets.txt file in root folder with the same number of wallet address as assets. 
+
+To create and deploy the collection, run the `batch-mint` command:
+
+
+```bash
+bubble batch-mint
+```
+#### Output
+Collection created at 61PxNqroV1jhMm1xv7PdHDPe7gj1xqVzJQTBLDDH13qB
+
+Tree created with signature :  3msvYMrTdXQo3JTYzsy7xBzxHNNjdHDbG2qD8aGKvMEtEfosGyug1T9BMnRrjtsXwNkF1HTfURgQT3TMyPnZjviV
+
+Deploying collection on Solana...
+
+Minting 1 of 10 NFTs
+
+Minting 2 of 10 NFTs
+
+Minting 3 of 10 NFTs
+
+Minting 4 of 10 NFTs
+
+Minting 5 of 10 NFTs
+
+Minting 6 of 10 NFTs
+
+Minting 7 of 10 NFTs
+
+Minting 8 of 10 NFTs
+
+Minting 9 of 10 NFTs
+
+Deploying 10 of 10 NFTs
+
+✅ Minting successful.
+
+Once this finishes, if you open up the cache.json file again you will see that the values have been filled in as we now have the collection created on-chain
+
 ## Mint a NFT
 
 Finally, to round off this tutorial we will mint an NFT from our bubble to ensure it works as expected. Run:
