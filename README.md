@@ -3,10 +3,6 @@
 
 The goal of this tutorial is to take you from zero to one: you will learn to install Bubble and use its basic commands to configure and deploy a compressed NFT collection to Solana's devnet. It will provide you with a foothold on the basics and enough knowledge that you can then use the rest of the developer resources to learn the more advanced details for using Bubble.
 
-Link to tutorial video :- 
- 1. https://www.loom.com/share/172311e5100e41678abc3b9fc07434a8?sid=0a19eae3-96eb-4384-b1aa-4cafe5b41867
- 2. https://www.loom.com/share/ce5ea0152dd94bb5b3790b83e071b8ce?sid=a2e3d16b-7a1f-4031-b947-8c60948cda3a
-
 ## Prerequisite Knowledge
 
 - You should have a basic understanding of how to find and use a terminal on your OS, including navigating directories, and running commands: an example of a terminal for macOS is [iTerm2](https://iterm2.com/).
@@ -54,7 +50,10 @@ SUBCOMMANDS:
     create         Create a new config file
     upload         Upload a metadata from asset folder to Arweave
     deploy         Deploy a new collection on Solana
-    mint           [address] mints a nft from the collection to the provided address
+    batch-mint     Mint a batch of NFTs to the wallet addresses in wallets.txt
+    set-cluster    Set the cluster to connect to mainnet-beta or devnet
+    set-rpc        Set the RPC URL to connect to Solana [ we are based and recommend using Helius RPC ]
+    info           Get the current cluster and RPC URL
 ```
 
 </p>
