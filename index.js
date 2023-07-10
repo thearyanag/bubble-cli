@@ -14,13 +14,17 @@ const {
   createConfig,
 } = require("./lib/create");
 
+const { setCluster, setRpc } = require("./lib/constants");
+
 const { askUpload, uploadDataToBundlr } = require("./lib/upload");
 
 const { createCollection, getMerkleTree, batchNFT } = require("./lib/deploy");
 
-const { batchNFTMint }  = require("./lib/batch");
+const { batchNFTMint } = require("./lib/batch");
 
 const { transferNFT } = require("./lib/deploy");
+
+const { getRpc, getCluster } = require("./lib/constants");
 
 // if there are no arguments passed, show the welcome screen
 if (Object.keys(res).length === 0) {
@@ -38,6 +42,10 @@ if (Object.keys(res).length === 0) {
     create         Create a new config file
     upload         Upload a metadata from asset folder to Arweave
     deploy         Deploy a new collection on Solana
+    batch-mint     Mint a batch of NFTs to the wallet addresses in wallets.txt
+    set-cluster    Set the cluster to connect to mainnet-beta or devnet
+    set-rpc        Set the RPC URL to connect to Solana [ we are based and recommend using Helius RPC ]
+    info           Get the current cluster and RPC URL
         `
     )
   );
@@ -49,6 +57,7 @@ if (Object.keys(res).length === 0) {
   // mint
 
   let keys = Object.keys(res);
+
   let command = keys[0];
 
   if (command === "create") {
@@ -78,10 +87,14 @@ if (Object.keys(res).length === 0) {
         shell.exit(1);
       }
     });
+  } else if (command === "set-cluster") {
+    let cluster = keys[1];
+    setCluster(cluster);
+  } else if (command.startsWith("set-rpc")) {
+    let rpc = keys[1];
+    setRpc(rpc);
   } else if (command === "upload") {
     let stats = getAssetStats();
-    console.log(stats);
-    // return
     let answers = askUpload(stats).then((answers) => {
       let imageResponse = uploadDataToBundlr(stats, answers);
       console.log("Uploading assets to Arweave...");
@@ -109,6 +122,11 @@ if (Object.keys(res).length === 0) {
         });
       });
     });
+  } else if (command == "info") {
+    let rpc = getRpc();
+    let cluster = getCluster();
+    console.log(`RPC: ${rpc}`);
+    console.log(`Cluster: ${cluster}`);
   } else {
     console.log("Invalid command");
   }
