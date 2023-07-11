@@ -28,7 +28,7 @@
     "start": "node index.js"
   },
   "package-name": "bubble-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A CLI tool to mint 10K compressed NFT collection on Solana",
   "main": "index.js",
   "repository": {
@@ -46,5 +46,6 @@
     "metaplex"
   ],
   "author": "Aryan",
-  "license": "MIT"
+  "license": "MIT",
+  "name": "bubble-cli"
 }
