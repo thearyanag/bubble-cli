@@ -1,2 +1,7 @@
 node_modules
 PRIVATE_KEY.txt
+cache.json
+config.json
+constants.json
+temp.json
+assets
