@@ -20,7 +20,7 @@ This tutorial targets macOS, Linux, and Windows Subsystem Linux (WSL), but all c
 To install Bubble, simply copy and paste and run this command in your terminal:
 
 ```bash
-npm install -g bubble-cli
+npm install -g bubble_cli
 ```
 
 Follow any instructions from the install script regarding updating your PATH. This may require closing and reopening your terminal. Once complete you should be able to run the command `bubble` in your terminal and get a list of available commands:
