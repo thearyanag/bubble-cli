@@ -28,7 +28,7 @@
     "start": "node index.js"
   },
   "package-name": "bubble-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A CLI tool to mint 10K compressed NFT collection on Solana",
   "main": "index.js",
   "repository": {
