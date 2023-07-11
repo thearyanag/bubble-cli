@@ -118,7 +118,7 @@ if (Object.keys(res).length === 0) {
       let merkleTree = getMerkleTree().then((merkleTree) => {
         console.log("Merkle tree created successfully ✔️");
         let batch = batchNFTMint(collection, merkleTree).then((batch) => {
-          console.log("Batch created successfully ✔️");
+          console.log(batch ? "Batch created successfully ✔️" : "Batch failed")
         });
       });
     });
